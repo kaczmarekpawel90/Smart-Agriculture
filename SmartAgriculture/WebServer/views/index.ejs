@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Smart Agriculture Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+</head>
+<br>
+    <h1>Smart Agriculture Dashboard</h1>
+
+    <div>
+        <select id="farmSelect">
+            <option value="">Select Farm</option>
+            <option value="Dublin">Dublin</option>
+            <option value="Cork">Cork</option>
+            <option value="Wicklow">Wicklow</option>
+        </select>
+        <button onclick="loadData()">Show Data</button>
+    </div>
+
+    <div id="dataContainer">
+        
+        <div id="weatherData">           
+            <h2>Weather Service</h2>
+            <p>Data will appear here...</p>           
+        </div>
+        <div id="cropHealthData">
+            <h2>Crop Health</h2>
+            <p>Data will appear here...</p>
+        </div>
+    </div>
+
+    <div id="irrigationData">
+      
+      
+      <div>
+            <h2>Irrigation Data</h2>
+            <p id="irrigationStart"></p>
+            <p id="irrigationDetails">Data will appear here...</p>
+            <p id="irrigationStop"></p>
+      </div>
+  </div>
+  
+  
+    </br>
+    </br>
+    <footer>
+    © Pawel Kaczmarek 2024 | All rights reserved.
+    </footer>
+
+    <script src="/javascripts/script.js"></script>
+</body>
+</html>
