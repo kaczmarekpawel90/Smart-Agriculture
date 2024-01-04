@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package irrigation;
+
+service IrrigationService {
+  rpc StartIrrigation (IrrigationRequest) returns (IrrigationResponse);
+  rpc StopIrrigation (IrrigationRequest) returns (IrrigationResponse);
+
+  rpc ReceiveSensorData(stream SensorDataRequest) returns (IrrigationDecisionResponse);
+}
+
+message IrrigationRequest {
+  string fieldId = 1;
+  int32 duration = 2; // Duration in minutes
+}
+
+message IrrigationResponse {
+  bool success = 1;
+  string message = 2;
+}
+
+message SensorDataRequest {
+  string sensorType = 1;
+  double value = 2;
+}
+
+message IrrigationDecisionResponse {
+  bool success = 1;
+  string message = 2;
+}

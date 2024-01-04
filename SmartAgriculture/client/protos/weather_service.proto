@@ -1,0 +1,47 @@
+syntax = "proto3";
+
+package weather;
+
+service WeatherService {
+  rpc GetTemperature (TemperatureRequest) returns (TemperatureResponse);
+  rpc GetHumidity (HumidityRequest) returns (HumidityResponse);
+  rpc GetWindInfo (WindInfoRequest) returns (WindInfoResponse);
+
+  rpc StreamWeatherUpdates(StreamWeatherRequest) returns (stream WeatherResponse);
+}
+
+message TemperatureRequest {
+  string location = 1;
+}
+
+message TemperatureResponse {
+  float temperature = 1;
+  string trend = 2; // e.g., "rising", "falling", "stable"
+}
+
+message HumidityRequest {
+  string location = 1;
+}
+
+message HumidityResponse {
+  float humidityLevel = 1;
+}
+
+message WindInfoRequest {
+  string location = 1;
+}
+
+message WindInfoResponse {
+  float windSpeed = 1;
+  string windDirection = 2; // e.g., "N", "NE", "E", etc.
+}
+
+message StreamWeatherRequest {
+  string location = 1;
+}
+
+message WeatherResponse {
+  float temperature = 1;
+  string trend = 2;
+}
+

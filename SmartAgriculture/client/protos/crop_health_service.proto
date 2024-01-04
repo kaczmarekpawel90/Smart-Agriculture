@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+package crop_health;
+
+service CropMonitoringService {
+  rpc GetCropHealth (CropHealthRequest) returns (CropHealthResponse);
+  rpc GetPestDetection (PestDetectionRequest) returns (PestDetectionResponse);
+
+  rpc MonitorCropHealthBidirectional(stream CropHealthRequest) returns (stream CropHealthResponse);
+}
+
+message CropHealthRequest {
+  string fieldId = 1;
+}
+
+message CropHealthResponse {
+  string healthStatus = 1;
+  string recommendation = 2;
+}
+
+message PestDetectionRequest {
+  string fieldId = 1;
+}
+
+message PestDetectionResponse {
+  bool pestsDetected = 1;
+  string pestType = 2;
+  string recommendation = 3;
+}
+
+message CropHealthMonitoringRequest {
+  string fieldId = 1;
+  string currentCondition = 2;
+}
+
+message CropHealthMonitoringResponse {
+  string healthStatus = 1;
+  string recommendation = 2;
+}
